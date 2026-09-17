@@ -28,7 +28,8 @@ Trạng thái: Bản nháp CP1 — đang kiểm chứng pain và thu thập bằ
   lại thì chưa diễn đạt rõ và chưa xác định được chỗ hiểu thiếu,
   khiến việc ôn tập thiếu trọng tâm.
 
-- Evidence: Đang thu thập, chưa có số liệu.
+- Evidence: Theo kết quả khảo sát bổ sung do nhóm trưởng cung cấp, khảo sát có 20 người trả lời: 19/20 người (95%) thường xuyên hoặc thỉnh thoảng gặp khó khăn khi học khái niệm mới; 14/20 người (70%) thường xuyên hoặc thỉnh thoảng giải thích lại để tự kiểm tra; 10/20 người (50%) lo AI hỏi không đúng trọng tâm. Đây là bằng chứng ban đầu để định hướng D3: bạn học AI đặt câu hỏi cụ thể, bám sát lời giải thích và tài liệu nguồn. Các số liệu này chưa trực tiếp chứng minh hiệu quả của giải pháp.
+  Nguồn: số liệu tổng hợp do nhóm trưởng cung cấp; cần đính kèm log 20 phản hồi để đối chiếu.
 
 ## §2. Impact & quyết định chọn
 
