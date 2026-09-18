@@ -24,13 +24,15 @@ Trạng thái: CP4 — đã chốt bản demo chính và quality bar; các mục
   lại thì chưa diễn đạt rõ và chưa xác định được chỗ hiểu thiếu,
   khiến việc ôn tập thiếu trọng tâm.
 
-- Evidence: Theo kết quả khảo sát bổ sung do nhóm trưởng cung cấp, khảo sát có 20 người trả lời: 19/20 người (95%) thường xuyên hoặc thỉnh thoảng gặp khó khăn khi học khái niệm mới; 14/20 người (70%) thường xuyên hoặc thỉnh thoảng giải thích lại để tự kiểm tra; 10/20 người (50%) lo AI hỏi không đúng trọng tâm. Đây là bằng chứng ban đầu để định hướng D3: bạn học AI đặt câu hỏi cụ thể, bám sát lời giải thích và tài liệu nguồn. Các số liệu này chưa trực tiếp chứng minh hiệu quả của giải pháp.
-  Nguồn: số liệu tổng hợp do nhóm trưởng cung cấp; cần đính kèm log 20 phản hồi để đối chiếu.
-  Chưa có câu hỏi và phản hồi gốc trong repo; chưa xác minh cách tuyển mẫu, phản hồi trùng hoặc quote nguyên văn. Không coi các tỷ lệ trên là kết quả dùng thử sản phẩm.
+- Evidence: Theo số liệu khảo sát 20 người do nhóm trưởng đối chiếu với phản hồi gốc, 19/20 (95%) thường xuyên hoặc thỉnh thoảng gặp khó khăn khi học khái niệm mới; 14/20 (70%) thường xuyên hoặc thỉnh thoảng giải thích lại để tự kiểm tra; 10/20 (50%) lo AI hỏi không đúng trọng tâm. Đây là bằng chứng ban đầu để định hướng D3: bạn học AI đặt câu hỏi cụ thể, bám sát lời giải thích và tài liệu nguồn. Các số liệu này chưa trực tiếp chứng minh hiệu quả của giải pháp.
+  Nguồn: số liệu tổng hợp do nhóm trưởng cung cấp và đã đối chiếu với phản hồi gốc. [Ảnh câu hỏi và biểu đồ Google Forms](evidence/survey-forms-14.pdf) được lưu cùng [bảng ghi nội dung ảnh](evidence/survey-check.md). Cần lưu bản xuất phản hồi đã ẩn danh để nhóm truy nguyên số liệu khi cần. Không dùng tỷ lệ khảo sát chung như số riêng của từng ứng viên trong §2.
 
 ## §2. Impact & quyết định chọn
 
 ### So sánh các phương án trong D3
+
+Khảo sát tổng hợp ở §1 hỏi về vấn đề chung và ý tưởng AI học trò, chưa đo riêng ba phương án dưới đây; các ô “Chờ khảo sát” được giữ nguyên.
+Về hậu quả chung của việc học bị vướng, ảnh biểu đồ khảo sát ở một thời điểm cho thấy 11/14 chọn mất 10–60 phút để vượt qua một lần vướng và 12/14 chấm ảnh hưởng đến kết quả học tập ở mức 3–4/5 ([bảng ghi nội dung ảnh](evidence/survey-check.md), trang 3). Hai số này không chứng minh impact riêng của phương án được chọn.
 
 | Ứng viên | Số người gặp | Tần suất | Chi phí/hậu quả mỗi lần | Khả thi dự kiến |
 |---|---|---|---|---|
@@ -128,3 +130,4 @@ Các đường đi trên là hành vi mục tiêu. Bản web 5 lượt hiện ch
 | Thời điểm | Đổi gì | Vì sao (trỏ về feedback/case nào) |
 | 18/09/2026, chuẩn bị CP4 | Bổ sung nghiên cứu công khai §3, thiết kế §4 và kiểm toán trạng thái eval §7 | Đối chiếu repo với phân công và phát hiện báo cáo 22/22 chưa chấm phản hồi thực tế. |
 | 18/09/2026, 18:53 | Nhóm trưởng chốt bản web 5 lượt và quality bar ≥85% toàn bộ, 100% Lớp 3 | Quyết định CP4; ngưỡng được khóa trước khi có kết quả eval thực tế được xác minh. |
+| 18/09/2026, cập nhật khảo sát | Cập nhật số liệu 20 người do nhóm trưởng đối chiếu với phản hồi gốc; lưu ảnh câu hỏi và biểu đồ khảo sát | Ghi rõ nguồn số liệu và giới hạn suy luận về hiệu quả giải pháp. |

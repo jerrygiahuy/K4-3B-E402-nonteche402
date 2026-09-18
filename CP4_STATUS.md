@@ -5,7 +5,7 @@ Tài liệu này ghi việc đã kiểm tra trong repo, không thay cho xác nh�
 ## Đã làm và có thể kiểm tra
 
 - Điền tên, vai trò và phạm vi công việc trong `README.md`, `TEAMMATES.md`, `spec.md` §8. Chưa có mã học viên, cụm hoặc thông tin liên hệ để điền.
-- Giữ số liệu khảo sát do nhóm trưởng cung cấp ở §1 với nhãn chưa đối chiếu log; ghi yêu cầu nguồn tại `evidence/README.md`.
+- Lưu ảnh câu hỏi, biểu đồ và một số câu trả lời mở do Huy cung cấp trong `evidence/survey-forms-14.pdf`, cùng bảng ghi nội dung ảnh tại `evidence/survey-check.md`. Ảnh ghi nhận thời điểm biểu đồ có 14 câu trả lời; nhóm trưởng xác nhận đã đối chiếu số liệu tổng hợp 20 người với phản hồi gốc.
 - §2 so sánh ba ứng viên D3 ở mức dự kiến và không dùng tỷ lệ khảo sát chung làm số riêng từng ứng viên.
 - §3 nghiên cứu mô tả công khai của Khanmigo và Duolingo Max; chưa dùng thử trực tiếp.
 - §4 ghi lát cắt, non-goals, mức prototype, quyết định augment và bốn nguyên tắc HAX gắn với vị trí trong mã; phân biệt phần đã có và phần cần kiểm tra.
@@ -27,7 +27,7 @@ Huy xác nhận các giờ trong kế hoạch chỉ để tham khảo; không d�
 |---|---|---|
 | CP1–CP3 đã nộp | Huy xác nhận đã điền form CP2 và CP3; chưa có biên nhận hoặc giờ nộp. CP1 chưa được xác nhận trong cuộc trao đổi. | Ảnh hoặc mã xác nhận từng form; số đo đã điền vào CP3 để đối chiếu với kết quả thử thật |
 | Yêu cầu chi tiết Track D/D3 | Chưa thấy file chi tiết trong repo | File/ảnh chính thức để đối chiếu hard tests và phạm vi |
-| Khảo sát 20 người | Chỉ có số liệu tổng hợp do nhóm trưởng cung cấp | Câu hỏi và 20 phản hồi gốc, cách tuyển mẫu, mã phản hồi, phép tính; quote nguyên văn nếu có |
+| Khảo sát 20 người | Huy xác nhận đã đối chiếu số liệu tổng hợp với phản hồi gốc; ảnh biểu đồ kèm theo được chụp ở thời điểm n=14 | Nếu cần truy nguyên, lưu bản xuất 20 phản hồi đã ẩn danh, cách tuyển mẫu, phép tính và quote có thể truy về mã phản hồi |
 | Ba ứng viên §2 | Chưa có dữ liệu riêng về số người, tần suất, hậu quả | Câu hỏi/quan sát phân biệt từng ứng viên; cập nhật quyết định nếu số liệu đổi |
 | Cộng tác viên | Chưa có bằng chứng xác nhận Hiệp/Triển đã nhận lời mời và clone repo | Xác nhận trực tiếp của hai bạn hoặc PR/commit trên nhánh riêng |
 | Bản demo chính | Nhóm trưởng đã chốt bản web `codebase/index.html`, tối đa 5 lượt | Triển/Hiệp kiểm tra lại lời gọi AI thật, nhánh quy tắc và hành vi so với lát cắt mục tiêu |
@@ -42,7 +42,7 @@ Huy xác nhận các giờ trong kế hoạch chỉ để tham khảo; không d�
 1. `codebase/eval/run_eval.py` và `run_eval.js` tính pass từ `expected_behavior`, không gọi sản phẩm. Cần thay bằng lượt kiểm thử đầu ra thực tế; không dùng 100% hiện tại trong form hoặc slide như kết quả AI.
 2. `codebase/agent.py` trả cùng một câu hỏi về ví dụ cho hai lời giải thích C01 khác nhau trong kiểm tra nhanh, kể cả một câu đầy đủ và một câu sai. Đây là dấu hiệu nhánh quy tắc chưa bám điểm thiếu theo nguồn; Hiệp/Triển cần đánh giá lại bằng test case thực tế.
 3. Bản web 5 lượt đã được chọn làm demo chính. Từ video CP3 phát hiện bộ đếm web hiện `1/5/2`; đã sửa HTML để chỉ hiện `1/5`. Đã gắn nhãn riêng cho phản hồi quy tắc trong `codebase/app.js`; cần chạy lại để kiểm tra. Chuỗi câu hỏi hiện định sẵn và chưa dừng sớm khi giải thích đã đủ ý.
-4. Video CP3 Huy gửi cho thấy giao diện chạy nhưng phản hồi giống nhánh quy tắc, không có dấu hiệu xác nhận lời gọi Gemini thật. Cần một đoạn ghi hình/trace an toàn của lời gọi AI thật, không chứa key hoặc dữ liệu bị hạn chế. Video CP3 hiện dài 2 phút 10 giây, trong khi README mô tả video khoảng 30 giây; nếu BTC áp dụng yêu cầu độ dài, cần cắt hoặc quay đoạn ngắn riêng.
+4. Video CP3 Huy gửi cho thấy giao diện chạy nhưng phản hồi giống nhánh quy tắc, không có dấu hiệu xác nhận lời gọi Gemini thật. Trong môi trường kiểm tra hiện không có `GEMINI_API_KEY` hoặc `OPENAI_API_KEY`, nên không thể tạo bằng chứng chạy API thật. Cần một đoạn ghi hình/trace an toàn của lời gọi thật trên máy nhóm, không chứa key hoặc dữ liệu bị hạn chế. Video CP3 hiện dài 2 phút 10 giây, trong khi README mô tả video khoảng 30 giây; nếu BTC áp dụng yêu cầu độ dài, cần cắt hoặc quay đoạn ngắn riêng.
 
 ## Trước khi gửi CP4
 
