@@ -7,8 +7,7 @@
 const MAX_TURNS = 5;
 
 // SLIDES DATA (4 CONCEPTS, NO TECHNICAL CODE NAMES SHOWN IN UI)
-const SLIDES_DATA = [
-  {
+const SLIDES_DATA = [{
     slide_id: 1,
     badge: "📌 People-First vs Technology-First Approach",
     title: "People-First vs Technology-First Approach",
@@ -24,8 +23,7 @@ const SLIDES_DATA = [
       "Không coi AI là giải pháp vạn năng cho mọi vấn đề.",
       "Bắt buộc có ví dụ thực tế và phân tích ở các tình huống khác nhau."
     ],
-    questions: [
-      {
+    questions: [{
         id: "q1_1",
         question: "Làm sao để biết người dùng thực sự có nỗi đau (pain point) đó hay chỉ là giả định?",
         prompt: "Làm sao để kiểm chứng xem người dùng thực sự có nỗi đau (pain point) thật sự hay đó chỉ là giả định cảm tính của team phát triển?"
@@ -52,8 +50,7 @@ const SLIDES_DATA = [
       "Không tự động hóa hoàn toàn các quyết định rủi ro cao (High-stakes).",
       "Yêu cầu phân tích chi phí sai sót khi AI đưa ra kết quả không chính xác."
     ],
-    questions: [
-      {
+    questions: [{
         id: "q2_1",
         question: "Trong tình huống High-Stakes (rủi ro cao), nếu AI dự đoán sai thì thiệt hại lớn nhất là gì?",
         prompt: "Trong tình huống Rủi ro cao (High stakes), nếu hệ thống AI đưa ra kết quả sai (Cost of Error) thì thiệt hại lớn nhất đối với người dùng là gì?"
@@ -80,8 +77,7 @@ const SLIDES_DATA = [
       "Không thiết kế cho một nhóm người dùng duy nhất mà bỏ qua tính đa dạng.",
       "Yêu cầu ví dụ thực tế về Extreme Users hoặc chiều kích định danh."
     ],
-    questions: [
-      {
+    questions: [{
         id: "q3_1",
         question: "Phỏng vấn nhóm Extreme Users giúp phát hiện góc khuất nào người dùng trung bình không thấy?",
         prompt: "Phỏng vấn nhóm Extreme Users (người dùng ở điểm cực đoan) giúp ta phát hiện ra những góc khuất hay nhu cầu ẩn nào của bài toán?"
@@ -108,8 +104,7 @@ const SLIDES_DATA = [
       "Không để AI tự suy đoán tri thức ngầm định mà không hỏi rõ người dùng.",
       "Cần phân tích rõ nguy cơ Reward Hacking qua ví dụ tình huống."
     ],
-    questions: [
-      {
+    questions: [{
         id: "q4_1",
         question: "Hiện tượng Reward Hacking (tối ưu chỉ số phụ nhưng làm sai mục tiêu chính) xảy ra thế nào?",
         prompt: "Hiện tượng Reward Hacking (AI tối ưu giỏi chỉ số phụ nhưng làm sai mục tiêu chính) thường xảy ra thế nào trong thực tế?"
@@ -127,7 +122,7 @@ const SLIDES_DATA = [
 let state = {
   activeSlideIndex: 0,
   activeQuestionId: null,
-  turnCounts: {},       // Keyed by q.id: e.g. turnCounts["q1_1"] = 2
+  turnCounts: {}, // Keyed by q.id: e.g. turnCounts["q1_1"] = 2
   questionHistories: {}, // Keyed by q.id: e.g. questionHistories["q1_1"] = [...]
   apiKey: localStorage.getItem('gemini_api_key') || '',
   savedExplanations: JSON.parse(localStorage.getItem('saved_explanations') || '[]')
@@ -208,7 +203,7 @@ function loadSlide(slideIndex) {
   if (slideConceptsList) slideConceptsList.textContent = slide.short_title;
 
   renderGroupedQuestions(slide);
-  
+
   // Select first question automatically if none active for this slide
   if (slide.questions.length > 0) {
     const firstQ = slide.questions[0];
@@ -221,7 +216,7 @@ function renderGroupedQuestions(slide) {
 
   const groupDiv = document.createElement('div');
   groupDiv.className = 'question-group-block';
-  
+
   groupDiv.innerHTML = `
     <div class="group-header-title">${slide.short_title}</div>
   `;
@@ -290,7 +285,10 @@ function appendMessageToQuestion(qId, role, text) {
   if (!state.questionHistories[qId]) {
     state.questionHistories[qId] = [];
   }
-  state.questionHistories[qId].push({ role, content: text });
+  state.questionHistories[qId].push({
+    role,
+    content: text
+  });
   renderMessageBubble(role, text);
 }
 
@@ -323,10 +321,10 @@ function formatMarkdownText(text) {
 // HELPER: QUALITY VALIDATION & CONTEXT EXTRACTION ENGINE
 function isMeaningfulAnswer(text, activeQuestionPrompt) {
   const cleanText = text.trim().toLowerCase();
-  
+
   // Rule 1: Minimum length requirement
   if (cleanText.length < 10) return false;
-  
+
   const words = cleanText.split(/\s+/).filter(w => w.length > 0);
   if (words.length < 3) return false;
 
@@ -451,11 +449,25 @@ Lượt thảo luận hiện tại: ${currentTurn}/${MAX_TURNS}.`;
   try {
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        system_instruction: { parts: [{ text: systemInstruction }] },
-        contents: [{ role: 'user', parts: [{ text: `Câu hỏi đang thảo luận: "${questionObj.prompt}"\nCâu trả lời mới từ học viên: "${userExplanation}"` }] }],
-        generationConfig: { temperature: 0.3, maxOutputTokens: 350 }
+        system_instruction: {
+          parts: [{
+            text: systemInstruction
+          }]
+        },
+        contents: [{
+          role: 'user',
+          parts: [{
+            text: `Câu hỏi đang thảo luận: "${questionObj.prompt}"\nCâu trả lời mới từ học viên: "${userExplanation}"`
+          }]
+        }],
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: 350
+        }
       })
     });
     const data = await res.json();
@@ -465,15 +477,10 @@ Lượt thảo luận hiện tại: ${currentTurn}/${MAX_TURNS}.`;
       text = text.replace('[INVALID_ANSWER]', '').trim();
 
       return {
-<<<<<<< HEAD
-        feedback: `🤖 **[AI Thật - Gemini]** ${text}`,
-        is_complete: !isInvalid && currentTurn >= MAX_TURNS,
-        isValidTurn: !isInvalid
-=======
         feedback: `🤖 **[AI Thật - Gemini API]** ${text}`,
         is_real_ai: true,
-        is_complete: currentTurn >= MAX_TURNS
->>>>>>> 81e055a3e6271fa7b1f3ca00f33629a3f39692bc
+        is_complete: !isInvalid && currentTurn >= MAX_TURNS,
+        isValidTurn: !isInvalid
       };
     }
   } catch (err) {
@@ -497,6 +504,7 @@ async function generateAiPeerFeedback(userExplanation, slideIndex, currentTurn, 
     if (inputLower.includes('code') || inputLower.includes('python')) {
       return {
         feedback: "Mình là bạn học cùng thảo luận lý thuyết AI Product Thinking thôi nè! Việc viết code chi tiết nằm ngoài phạm vi bài học. Bọn mình cùng ôn tiếp góc nhìn thiết kế nhé?",
+        is_real_ai: false,
         is_complete: false,
         isValidTurn: false
       };
@@ -504,6 +512,7 @@ async function generateAiPeerFeedback(userExplanation, slideIndex, currentTurn, 
     if (inputLower.includes('thuốc') || inputLower.includes('y tế')) {
       return {
         feedback: "Câu hỏi về y tế sức khỏe nằm ngoài phạm vi môn học rồi! Bạn nên tham khảo ý kiến bác sĩ chuyên khoa nhé.",
+        is_real_ai: false,
         is_complete: false,
         isValidTurn: false
       };
@@ -511,6 +520,7 @@ async function generateAiPeerFeedback(userExplanation, slideIndex, currentTurn, 
     if (inputLower.includes('chấm') || inputLower.includes('vlearn')) {
       return {
         feedback: "Mình là bạn học đồng hành thôi nè, không có thẩm quyền chấm điểm hay gửi VLearn đâu!",
+        is_real_ai: false,
         is_complete: false,
         isValidTurn: false
       };
@@ -523,6 +533,7 @@ async function generateAiPeerFeedback(userExplanation, slideIndex, currentTurn, 
       feedback: `🤔 **Minh An thấy câu trả lời của bạn chưa đi thẳng vào câu hỏi thảo luận hoặc còn quá ngắn nè!**\n\n` +
         `📌 **Câu hỏi hiện tại**: *"${questionObj.prompt}"*\n\n` +
         `👉 Bạn hãy thử đưa ra ý kiến, lập luận hoặc 1 ví dụ thực tế liên quan đến chủ đề **${slide.short_title}** để bọn mình cùng thảo luận tiếp nhé!`,
+      is_real_ai: false,
       is_complete: false,
       isValidTurn: false
     };
@@ -584,6 +595,7 @@ async function generateAiPeerFeedback(userExplanation, slideIndex, currentTurn, 
 
   return {
     feedback: nextFeedback,
+    is_real_ai: false,
     is_complete: isComplete,
     isValidTurn: true
   };
@@ -631,9 +643,12 @@ function setupEventListeners() {
 
       const slideIdx = state.activeSlideIndex;
       const response = await generateAiPeerFeedback(text, slideIdx, prevTurns + 1, currentQId, history);
-      
-<<<<<<< HEAD
-      appendMessageToQuestion(currentQId, 'buddy', response.feedback);
+
+      const feedbackText = response.is_real_ai ?
+        response.feedback :
+        `🧩 **[Phản hồi quy tắc — không phải AI thật]** ${response.feedback}`;
+
+      appendMessageToQuestion(currentQId, 'buddy', feedbackText);
 
       if (response.isValidTurn) {
         state.turnCounts[currentQId] = prevTurns + 1;
@@ -641,17 +656,11 @@ function setupEventListeners() {
       const updatedTurns = state.turnCounts[currentQId] || 0;
 
       if (response.is_complete || updatedTurns >= MAX_TURNS) {
-=======
-      const response = await generateAiPeerFeedback(text, currentIndex, currentTurn);
-      appendMessage('buddy', response.is_real_ai ? response.feedback : `🧩 **[Phản hồi quy tắc — không phải AI thật]** ${response.feedback}`);
-      
-      if (response.is_complete || currentTurn >= MAX_TURNS) {
->>>>>>> 81e055a3e6271fa7b1f3ca00f33629a3f39692bc
         sourceComparisonBar.classList.remove('hidden');
         userInputEl.disabled = true;
         btnSend.disabled = true;
         userInputEl.placeholder = `Hoàn thành ${MAX_TURNS} lượt thảo luận! Reset để thử lại.`;
-        saveExplanationToLibrary(SLIDES_DATA[slideIdx], text, response.feedback);
+        saveExplanationToLibrary(SLIDES_DATA[slideIdx], text, feedbackText);
       }
     }, 850);
   });
@@ -661,7 +670,7 @@ function setupEventListeners() {
     if (currentQId) {
       state.turnCounts[currentQId] = 0;
       state.questionHistories[currentQId] = [];
-      
+
       const slide = SLIDES_DATA[state.activeSlideIndex];
       const qObj = slide.questions.find(q => q.id === currentQId);
       if (qObj) {
