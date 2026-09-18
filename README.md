@@ -4,7 +4,7 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** E402 · **Cụm:** ____ · **Track:** D — Học tập thích ứng & tương tác (đề D3)
+**Lớp:** 3B · **Phòng:** E402 · **Cụm:** C5 · **Track:** D — Học tập thích ứng & tương tác (đề D3)
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
