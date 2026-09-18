@@ -465,9 +465,15 @@ Lượt thảo luận hiện tại: ${currentTurn}/${MAX_TURNS}.`;
       text = text.replace('[INVALID_ANSWER]', '').trim();
 
       return {
+<<<<<<< HEAD
         feedback: `🤖 **[AI Thật - Gemini]** ${text}`,
         is_complete: !isInvalid && currentTurn >= MAX_TURNS,
         isValidTurn: !isInvalid
+=======
+        feedback: `🤖 **[AI Thật - Gemini API]** ${text}`,
+        is_real_ai: true,
+        is_complete: currentTurn >= MAX_TURNS
+>>>>>>> 81e055a3e6271fa7b1f3ca00f33629a3f39692bc
       };
     }
   } catch (err) {
@@ -626,6 +632,7 @@ function setupEventListeners() {
       const slideIdx = state.activeSlideIndex;
       const response = await generateAiPeerFeedback(text, slideIdx, prevTurns + 1, currentQId, history);
       
+<<<<<<< HEAD
       appendMessageToQuestion(currentQId, 'buddy', response.feedback);
 
       if (response.isValidTurn) {
@@ -634,6 +641,12 @@ function setupEventListeners() {
       const updatedTurns = state.turnCounts[currentQId] || 0;
 
       if (response.is_complete || updatedTurns >= MAX_TURNS) {
+=======
+      const response = await generateAiPeerFeedback(text, currentIndex, currentTurn);
+      appendMessage('buddy', response.is_real_ai ? response.feedback : `🧩 **[Phản hồi quy tắc — không phải AI thật]** ${response.feedback}`);
+      
+      if (response.is_complete || currentTurn >= MAX_TURNS) {
+>>>>>>> 81e055a3e6271fa7b1f3ca00f33629a3f39692bc
         sourceComparisonBar.classList.remove('hidden');
         userInputEl.disabled = true;
         btnSend.disabled = true;
