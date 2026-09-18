@@ -1,0 +1,90 @@
+{
+  "concepts": [
+    {
+      "concept_id": "C01",
+      "title": "People-First vs Technology-First Approach",
+      "core_points": [
+        "Xác định vấn đề thực tế của người dùng trước khi áp dụng AI",
+        "Kiểm chứng giả định về người dùng, bối cảnh và nỗi đau (pain point)",
+        "Technology-first bắt đầu từ năng lực AI hiện có để tìm bài toán phù hợp",
+        "Dùng dữ liệu, phỏng vấn và quan sát để dung hòa hai phương pháp"
+      ],
+      "missing_indicators": [
+        "Không đề cập đến nhu cầu hoặc bối cảnh của người dùng",
+        "Coi AI là giải pháp vạn năng cho mọi bài toán mà không cần kiểm chứng"
+      ],
+      "limits": [
+        "Không dùng AI để thay thế nhu cầu thật của con người",
+        "Không bắt buộc mọi sản phẩm đều phải dùng tiếp cận people-first thuần túy"
+      ],
+      "probing_questions": [
+        "Bạn có thể nói rõ hơn về việc làm sao để biết người dùng thực sự cần giải pháp AI đó không?",
+        "Sự khác biệt cốt lõi giữa tiếp cận Hướng người dùng và Hướng công nghệ là gì nhỉ?"
+      ]
+    },
+    {
+      "concept_id": "C02",
+      "title": "Deciding if AI Adds Unique Value & Stakes/Context/Cost",
+      "core_points": [
+        "Đánh giá xem giải pháp có thực sự tạo giá trị độc bản nhờ AI hay không",
+        "Cân nhắc 4 yếu tố: Stakes (rủi ro), User Context (bối cảnh), Cost (chi phí), Evidence (bằng chứng)",
+        "Tránh tự động hóa (automate) hoặc tăng cường (augment) các tác vụ giá trị cao khi người dùng không muốn"
+      ],
+      "missing_indicators": [
+        "Không phân tích mức độ rủi ro (high/low stakes)",
+        "Bỏ qua phản ứng tiêu cực của người dùng khi tác vụ quan trọng bị can thiệp"
+      ],
+      "limits": [
+        "Không áp dụng AI vào các tác vụ mà chi phí sai sót (cost of error) vượt quá lợi ích",
+        "Không tự động hóa hoàn toàn các quyết định thay cho người dùng trong bối cảnh rủi ro cao"
+      ],
+      "probing_questions": [
+        "Trong các tình huống rủi ro cao (high stakes), việc dùng AI có thể gặp nguy cơ gì cho trải nghiệm người dùng?",
+        "Làm sao để nhóm phát triển biết khi nào AI làm giảm chất lượng trải nghiệm người dùng?"
+      ]
+    },
+    {
+      "concept_id": "C03",
+      "title": "Understanding the Nature of the Problem & Identity Dimensions",
+      "core_points": [
+        "Xác minh bài toán đúng bằng cách phỏng vấn Extreme Users",
+        "Phân tích yếu tố xã hội - kỹ thuật (socio-technical drivers) và sự thay đổi theo thời gian",
+        "Đánh giá tác động theo các chiều kích định danh (thu nhập, ngôn ngữ, vị trí, giới tính)",
+        "Sử dụng Model Cards và Data Cards để đánh giá giữa Utility và Usability"
+      ],
+      "missing_indicators": [
+        "Chỉ giả định cho một đối tượng người dùng duy nhất mà bỏ qua tính đa dạng",
+        "Bỏ qua sự khác biệt giữa năng lực kỹ thuật của mô hình (utility) và khả năng dùng thực tế (usability)"
+      ],
+      "limits": [
+        "Không đánh giá mô hình AI độc lập khỏi hệ thống kỹ thuật xung quanh",
+        "Không đưa ra nhận xét chuyên sâu ngoài tài liệu về y tế, pháp lý hoặc nhân sự"
+      ],
+      "probing_questions": [
+        "Việc phỏng vấn nhóm 'Extreme Users' giúp ích gì trong việc phát hiện khía cạnh ẩn của bài toán?",
+        "Các chiều kích định danh (như ngôn ngữ hay vị trí) ảnh hưởng thế nào đến cách người dùng trải nghiệm sản phẩm AI?"
+      ]
+    },
+    {
+      "concept_id": "C04",
+      "title": "Specification Alignment & Problem Framing",
+      "core_points": [
+        "Căn chỉnh mô tả mục tiêu (Specification Alignment) để AI hành động đúng ý định người dùng",
+        "Phân rã thành Primary Goal, Sub-goals và phát hiện Underspecification (mô tả thiếu)",
+        "Nhận biết nguy cơ Reward Hacking khi AI tối ưu hóa sai mục tiêu được giao"
+      ],
+      "missing_indicators": [
+        "Không phân biệt mục tiêu chính (Primary goal) và mục tiêu phụ (Sub-goals)",
+        "Bỏ qua hiện tượng Reward Hacking hoặc giả định AI luôn hiểu ngầm ý người dùng"
+      ],
+      "limits": [
+        "Không tự ý thêm bớt mục tiêu ngoài tài liệu nguồn được cấp",
+        "Không đánh giá đúng/sai các thuật toán học máy nâng cao ngoài phạm vi tài liệu"
+      ],
+      "probing_questions": [
+        "Hiện tượng Reward Hacking xảy ra khi nào và tại sao lại nguy hiểm cho sản phẩm AI?",
+        "Làm thế nào để xử lý phần tri thức ngầm định (Underspecification) mà người dùng không nói rõ với AI?"
+      ]
+    }
+  ]
+}

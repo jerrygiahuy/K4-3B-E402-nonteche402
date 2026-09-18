@@ -95,7 +95,7 @@ Xây prototype cho học viên giải thích một khái niệm bằng văn bả
 ### P1. Nguồn, prompt và hành vi AI
 
 - [ ] Chọn 1–2 khái niệm có nguồn trong tài liệu được phép; kiểm tra các ý chính và mã đoạn.
-- [ ] Viết prompt vai bạn học: mỗi lượt hỏi một điểm cụ thể, không giảng thay ngay, không cố tìm lỗi khi giải thích đúng.
+- [x] Viết prompt vai bạn học: mỗi lượt hỏi một điểm cụ thể, không giảng thay ngay, không cố tìm lỗi khi giải thích đúng.
 - [ ] Định nghĩa hành vi khi input mơ hồ, sai kiến thức, đủ ý, không có nguồn hoặc ngoài phạm vi.
 - [ ] Thử ít nhất 5 input với Triển trước khi mở rộng; bàn giao prompt có phiên bản.
 - [ ] Viết ≥8 kịch bản, phủ 4 lớp: nguồn sự thật; thiếu/mơ hồ; ngoài phạm vi/thẩm quyền; lỗi đặc thù học tập.

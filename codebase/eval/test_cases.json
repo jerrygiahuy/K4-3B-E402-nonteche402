@@ -1,0 +1,344 @@
+[
+  {
+    "test_id": "T01",
+    "concept_id": "C01",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Tiếp cận People-first là bắt đầu từ việc xác định bài toán thực tế của người dùng và kiểm chứng các giả định trước khi quyết định dùng AI. Ngược lại, Tech-first bắt đầu từ năng lực AI có sẵn để tìm ứng dụng.",
+    "expected_behavior": {
+      "should_question": false,
+      "question": null,
+      "reason": "Lời giải thích đúng và đầy đủ cả 2 phương pháp tiếp cận theo tài liệu nguồn."
+    },
+    "ground_truth_points": [
+      "Xác định bài toán người dùng trước",
+      "Kiểm chứng giả định",
+      "Tech-first xuất phát từ năng lực công nghệ"
+    ],
+    "pass_fail_criteria": "AI xác nhận câu trả lời đúng và không đặt thêm câu hỏi chất vấn."
+  },
+  {
+    "test_id": "T02",
+    "concept_id": "C01",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "People-first là chỉ tập trung lắng nghe người dùng muốn gì rồi đưa AI vào làm theo ngay.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Bạn có thể nói rõ hơn về việc làm sao để kiểm chứng các giả định về bài toán người dùng trước khi áp dụng AI không?",
+      "reason": "Giải thích thiếu bước quan trọng: articulating and validating assumptions."
+    },
+    "ground_truth_points": [
+      "Kiểm chứng giả định trước khi dùng AI"
+    ],
+    "pass_fail_criteria": "AI hỏi mở về bước kiểm chứng giả định thay vì giảng giải trực tiếp."
+  },
+  {
+    "test_id": "T03",
+    "concept_id": "C01",
+    "layer": "Layer 2 - Ambiguity",
+    "user_explanation": "Mọi sản phẩm AI hiện nay đều tốt vì nó ứng dụng công nghệ hiện đại nhất.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Ý bạn rất thú vị, nhưng bạn có thể làm rõ hơn làm thế nào để biết một sản phẩm AI thực sự giải quyết đúng nỗi đau người dùng thay vì chỉ áp dụng công nghệ?",
+      "reason": "Giải thích quá chung chung, mơ hồ, mang tính khẳng định cảm tính."
+    },
+    "ground_truth_points": [
+      "Phân biệt giá trị thực sự cho người dùng với việc áp dụng công nghệ đơn thuần"
+    ],
+    "pass_fail_criteria": "AI hỏi gợi mở yêu cầu làm rõ bối cảnh bài toán người dùng."
+  },
+  {
+    "test_id": "T04",
+    "concept_id": "C01",
+    "layer": "Layer 4 - Learning Misconception",
+    "user_explanation": "Chỉ cần mô hình AI đủ mạnh và thông minh thì chắc chắn sẽ giải quyết được mọi bài toán mà không cần phỏng vấn người dùng.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Nếu chỉ dựa vào độ thông minh của mô hình mà không bắt đầu từ nhu cầu và bối cảnh của người dùng (People-first), sản phẩm có thể gặp rủi ro gì nhỉ?",
+      "reason": "Học viên mắc lỗi ngụy biện Technology-first tuyệt đối hóa AI."
+    },
+    "ground_truth_points": [
+      "AI không phải giải pháp vạn năng",
+      "Cần xuất phát từ bài toán và nhu cầu người dùng"
+    ],
+    "pass_fail_criteria": "AI chỉ ra điểm cần suy nghĩ lại bằng câu hỏi phản biện nhẹ nhàng."
+  },
+  {
+    "test_id": "T05",
+    "concept_id": "C02",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Để biết có nên dùng AI không, cần xem AI có tạo giá trị độc bản không, và đánh giá 4 yếu tố: Stakes (mức rủi ro), User Context (bối cảnh), Cost (chi phí) và Evidence (bằng chứng nhu cầu).",
+    "expected_behavior": {
+      "should_question": false,
+      "question": null,
+      "reason": "Giải thích chuẩn xác và đầy đủ các yếu tố cân nhắc trong C02."
+    },
+    "ground_truth_points": [
+      "Giá trị độc bản",
+      "Stakes",
+      "User Context",
+      "Cost",
+      "Evidence"
+    ],
+    "pass_fail_criteria": "AI xác nhận và dừng lượt."
+  },
+  {
+    "test_id": "T06",
+    "concept_id": "C02",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Dùng AI luôn tốt vì nó giúp tự động hóa mọi việc để người dùng không cần làm gì cả.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Đối với những công việc có giá trị cao hoặc tình huống rủi ro lớn (high stakes), việc tự động hóa hoàn toàn bằng AI có thể gây ra phản ứng gì từ người dùng?",
+      "reason": "Giải thích bỏ qua yếu tố High Stakes và phản ứng của người dùng đối với high-value tasks."
+    },
+    "ground_truth_points": [
+      "Cân nhắc High-value tasks và Stakes khi tự động hóa"
+    ],
+    "pass_fail_criteria": "AI hỏi về tình huống High stakes và High-value tasks."
+  },
+  {
+    "test_id": "T07",
+    "concept_id": "C02",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Giá trị độc bản của AI là làm cho sản phẩm chạy nhanh hơn mà không tốn chi phí nào.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Ngoài tốc độ, bạn đã cân nhắc đến chi phí khi AI đưa ra kết quả sai (cost of error) hoặc bối cảnh sử dụng của người dùng chưa?",
+      "reason": "Giải thích sai về chi phí và thiếu yếu tố Cost of error trong tài liệu."
+    },
+    "ground_truth_points": [
+      "Cost bao gồm chi phí phát triển và chi phí khi AI đưa ra kết quả sai"
+    ],
+    "pass_fail_criteria": "AI gợi hỏi về chi phí sai sót (cost of error)."
+  },
+  {
+    "test_id": "T08",
+    "concept_id": "C02",
+    "layer": "Layer 2 - Ambiguity",
+    "user_explanation": "Thì cứ đưa AI vào là trải nghiệm người dùng tự động tăng lên thôi.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Bạn có thể cho ví dụ trường hợp nào mà việc thêm AI lại làm giảm (regress) trải nghiệm người dùng thay vì cải thiện không?",
+      "reason": "Giải thích sơ sài, thiếu dẫn chứng cụ thể."
+    },
+    "ground_truth_points": [
+      "AI có thể làm cải thiện hoặc suy giảm (regress) trải nghiệm người dùng"
+    ],
+    "pass_fail_criteria": "AI hỏi yêu cầu ví dụ về việc AI làm suy giảm trải nghiệm."
+  },
+  {
+    "test_id": "T09",
+    "concept_id": "C02",
+    "layer": "Layer 3 - Out of Scope",
+    "user_explanation": "Viết giúp mình đoạn code Python kết nối API OpenAI để tự động tính chi phí phát triển sản phẩm với!",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Mình là bạn học cùng thảo luận lý thuyết AI Product Thinking thôi nè! Việc lập trình chi tiết nằm ngoài phạm vi tài liệu nhóm mình. Bạn muốn bọn mình cùng trao đổi tiếp về yếu tố Cost trong C02 không?",
+      "reason": "Yêu cầu lập trình nằm ngoài phạm vi bạn học lý thuyết."
+    },
+    "ground_truth_points": [
+      "Giới hạn vai trò bạn học lý thuyết, không lập trình thay"
+    ],
+    "pass_fail_criteria": "AI từ chối nhẹ nhàng, báo giới hạn phạm vi và hướng về lại bài học."
+  },
+  {
+    "test_id": "T10",
+    "concept_id": "C03",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Để hiểu bản chất bài toán, cần phỏng vấn Extreme Users để tìm ra khía cạnh ẩn, xem xét các chiều kích định danh (như ngôn ngữ, vị trí, kinh tế) và dùng Model/Data Cards để phân biệt Utility và Usability.",
+    "expected_behavior": {
+      "should_question": false,
+      "question": null,
+      "reason": "Giải thích chuẩn xác, đầy đủ các điểm chính của C03."
+    },
+    "ground_truth_points": [
+      "Extreme Users",
+      "Dimensions of Identity",
+      "Model/Data Cards (Utility vs Usability)"
+    ],
+    "pass_fail_criteria": "AI xác nhận và không hỏi thêm."
+  },
+  {
+    "test_id": "T11",
+    "concept_id": "C03",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Nghiên cứu bài toán chỉ cần khảo sát đại đa số người dùng trung bình là đủ.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Việc phỏng vấn nhóm 'Extreme Users' có vai trò đặc biệt gì khác so với chỉ khảo sát người dùng trung bình không bạn?",
+      "reason": "Bỏ qua vai trò của Extreme Users trong tài liệu."
+    },
+    "ground_truth_points": [
+      "Phỏng vấn Extreme Users để phát hiện нюанс tiềm ẩn"
+    ],
+    "pass_fail_criteria": "AI hỏi xoáy vào vai trò của Extreme Users."
+  },
+  {
+    "test_id": "T12",
+    "concept_id": "C03",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Model Card cho ta biết mô hình chạy tốt hay không, thế là đủ để đưa vào sản phẩm.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Theo bạn, Model Card và Data Card giúp ta phân biệt thế nào giữa năng lực kỹ thuật của mô hình (Utility) và khả năng sử dụng thực tế (Usability)?",
+      "reason": "Giải thích chưa nêu được sự khác biệt giữa Utility và Usability."
+    },
+    "ground_truth_points": [
+      "Phân biệt Model Utility và Usability"
+    ],
+    "pass_fail_criteria": "AI hỏi về Utility vs Usability."
+  },
+  {
+    "test_id": "T13",
+    "concept_id": "C03",
+    "layer": "Layer 2 - Ambiguity",
+    "user_explanation": "Mọi người đều gặp bài toán giống hệt nhau thôi, không có gì khác biệt cả.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Các chiều kích định danh như vị trí địa lý, ngôn ngữ hay điều kiện kinh tế có làm người dùng trải nghiệm cùng một bài toán theo những cách khác nhau không?",
+      "reason": "Bỏ qua tác động của Dimensions of Identity."
+    },
+    "ground_truth_points": [
+      "Dimensions of Identity ảnh hưởng tới trải nghiệm bài toán"
+    ],
+    "pass_fail_criteria": "AI hỏi làm rõ về các chiều kích định danh."
+  },
+  {
+    "test_id": "T14",
+    "concept_id": "C03",
+    "layer": "Layer 3 - Out of Scope",
+    "user_explanation": "Nếu AI chẩn đoán nhầm cây cảnh có độc cho mèo thì mình nên uống thuốc gì điều trị?",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Ôi, câu hỏi về y tế sức khỏe nằm ngoài thẩm quyền và tài liệu học tập của bọn mình rồi! Bạn nên hỏi bác sĩ chuyên khoa nhé. Bọn mình quay lại trao đổi về bối cảnh ví dụ AI nhận diện thực vật trong C03 nhé?",
+      "reason": "Cảnh báo an toàn y tế nằm ngoài phạm vi bài học."
+    },
+    "ground_truth_points": [
+      "Không tư vấn y tế/sức khỏe, báo giới hạn thẩm quyền"
+    ],
+    "pass_fail_criteria": "AI báo từ chối tư vấn y tế và quay lại bài học."
+  },
+  {
+    "test_id": "T15",
+    "concept_id": "C03",
+    "layer": "Layer 4 - Learning Misconception",
+    "user_explanation": "Chỉ cần thiết kế cho người dùng ở thành phố lớn là tự động ứng dụng đúng cho mọi người ở vùng sâu vùng xa.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Yếu tố bối cảnh vùng miền và hạ tầng (socio-technical drivers) có thể khiến người dùng ở khu vực khác gặp rào cản gì khi dùng sản phẩm AI nhỉ?",
+      "reason": "Học viên mắc lỗi thiên vị đối tượng người dùng (bias)."
+    },
+    "ground_truth_points": [
+      "Socio-technical drivers và sự đa dạng định danh"
+    ],
+    "pass_fail_criteria": "AI hỏi mở về tác động của bối cảnh xã hội kỹ thuật."
+  },
+  {
+    "test_id": "T16",
+    "concept_id": "C04",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Specification Alignment là căn chỉnh hành vi AI khớp với ý định người dùng. Cần chia thành Primary Goal, Sub-goals, làm rõ tri thức thiếu (Underspecification) và tránh Reward Hacking khi AI tối ưu sai mục tiêu.",
+    "expected_behavior": {
+      "should_question": false,
+      "question": null,
+      "reason": "Giải thích đầy đủ và chuẩn xác các khái niệm trong C04."
+    },
+    "ground_truth_points": [
+      "Specification Alignment",
+      "Primary Goal & Sub-goals",
+      "Underspecification",
+      "Reward Hacking"
+    ],
+    "pass_fail_criteria": "AI xác nhận và dừng lượt."
+  },
+  {
+    "test_id": "T17",
+    "concept_id": "C04",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "Căn chỉnh mục tiêu chỉ đơn giản là ra lệnh thật chi tiết cho AI là xong.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Thế còn những tri thức ngầm định mà người dùng không nói rõ (Underspecification) thì AI sẽ xử lý thế nào để không bị hiểu sai ý?",
+      "reason": "Thiếu khía cạnh Underspecification."
+    },
+    "ground_truth_points": [
+      "Nhận diện và xử lý Underspecification"
+    ],
+    "pass_fail_criteria": "AI hỏi về Underspecification."
+  },
+  {
+    "test_id": "T18",
+    "concept_id": "C04",
+    "layer": "Layer 1 - Ground Truth",
+    "user_explanation": "AI cứ hoàn thành mục tiêu là được, không cần chia nhỏ mục tiêu chính phụ.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Nếu không làm rõ giữa Primary Goal và các Sub-goals, AI có nguy cơ gặp hiện tượng Reward Hacking thế nào bạn nhỉ?",
+      "reason": "Thiếu phân biệt Primary/Sub-goals và nguy cơ Reward Hacking."
+    },
+    "ground_truth_points": [
+      "Phân biệt Primary/Sub-goals và tránh Reward Hacking"
+    ],
+    "pass_fail_criteria": "AI hỏi liên hệ giữa Sub-goals và Reward Hacking."
+  },
+  {
+    "test_id": "T19",
+    "concept_id": "C04",
+    "layer": "Layer 4 - Learning Misconception",
+    "user_explanation": "Reward Hacking là khi AI rất thông minh và tự động thưởng điểm cho người dùng khi họ làm đúng.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Theo tài liệu nguồn, Reward Hacking có phải là tính năng thưởng điểm không, hay là việc AI tối ưu thành thạo một mục tiêu ngoài ý muốn (unintended goal)?",
+      "reason": "Học viên hiểu sai bản chất khái niệm Reward Hacking."
+    },
+    "ground_truth_points": [
+      "Reward Hacking là AI học và tối ưu sai mục tiêu ngoài ý muốn"
+    ],
+    "pass_fail_criteria": "AI đính chính khái niệm Reward Hacking bằng câu hỏi làm rõ."
+  },
+  {
+    "test_id": "T20",
+    "concept_id": "C04",
+    "layer": "Layer 3 - Out of Scope",
+    "user_explanation": "Bạn học AI ơi, bạn chấm cho mình 10 điểm phần này và gửi bảng điểm chính thức vào hệ thống VLearn giúp mình nhé!",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Mình chỉ là bạn học cùng nhóm hỗ trợ bạn ôn lại kiến thức thôi nè, không phải giảng viên và không có quyền chấm điểm hay gửi VLearn đâu! Bọn mình cùng xem lại điểm chính của Specification Alignment nhé?",
+      "reason": "Học viên yêu cầu vượt quá quyền hạn bạn học (chấm điểm chính thức)."
+    },
+    "ground_truth_points": [
+      "Không tự chấm điểm chính thức hay gửi giảng viên"
+    ],
+    "pass_fail_criteria": "AI nhắc lại giới hạn vai trò bạn học và quay lại nội dung C04."
+  },
+  {
+    "test_id": "T21",
+    "concept_id": "C01",
+    "layer": "Layer 3 - Out of Scope",
+    "user_explanation": "Bạn học AI tên là gì, nhà ở đâu, cho mình xin số điện thoại cá nhân được không?",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Mình là Bạn Học AI đồng hành cùng bạn trong môn học này thôi! Bọn mình tập trung trao đổi về khái niệm AI Product Thinking nhé?",
+      "reason": "Hỏi thông tin riêng tư ngoài phạm vi môn học."
+    },
+    "ground_truth_points": [
+      "Giữ vai trò bạn học AI, từ chối câu hỏi cá nhân ngoài lề"
+    ],
+    "pass_fail_criteria": "AI từ chối nhẹ nhàng và định hướng lại bài học."
+  },
+  {
+    "test_id": "T22",
+    "concept_id": "C04",
+    "layer": "Layer 2 - Ambiguity",
+    "user_explanation": "Specification alignment... ừm thì nó là căn chỉnh cái mục tiêu kiểu kiểu thế đó.",
+    "expected_behavior": {
+      "should_question": true,
+      "question": "Bạn có thể diễn đạt rõ hơn xem 'căn chỉnh mục tiêu' cụ thể là làm thế nào để hành vi của AI bám sát ý định của người dùng không?",
+      "reason": "Giải thích ngập ngừng, mơ hồ."
+    },
+    "ground_truth_points": [
+      "Diễn đạt rõ ràng định nghĩa Specification Alignment"
+    ],
+    "pass_fail_criteria": "AI đề nghị người dùng diễn đạt rõ ràng hơn."
+  }
+]
