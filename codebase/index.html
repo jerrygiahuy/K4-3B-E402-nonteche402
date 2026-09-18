@@ -41,31 +41,24 @@
       </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
+    <!-- Main Content Area: Split 2/3 (Left Slide) & 1/3 (Right Questions & Chat) -->
+    <main class="main-workspace-split">
       
-      <!-- TOP SECTION: DYNAMIC KNOWLEDGE SLIDE CARD -->
-      <section class="knowledge-slide-section">
+      <!-- LEFT COLUMN (2/3 Width): KNOWLEDGE SLIDE CARD -->
+      <section class="slide-col-left">
         <div class="slide-card-container">
           <button id="slide-prev" class="slide-nav-btn prev" title="Slide trước">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
           
           <div class="slide-card" id="knowledge-slide">
-            <!-- Dynamic Content Injected via JS -->
+            <!-- Dynamic Slide Content Injected via JS -->
             <div class="slide-header">
-              <span class="slide-badge" id="slide-badge">Khái niệm C01 / 04</span>
-              <h2 class="slide-title" id="slide-title">Loading concept...</h2>
+              <span class="slide-badge-pill" id="slide-badge">📌 C01 People-First vs Technology-First Approach</span>
             </div>
-            <div class="slide-body">
-              <div class="slide-block">
-                <h3>📌 Ý chính cần có</h3>
-                <ul id="slide-core-points" class="slide-list"></ul>
-              </div>
-              <div class="slide-block">
-                <h3>⚠️ Điểm giới hạn & Mốc đối chiếu</h3>
-                <ul id="slide-limits" class="slide-list limits"></ul>
-              </div>
+            
+            <div class="slide-content-body" id="slide-content-body">
+              <!-- Ý chính cốt lõi & Điểm giới hạn (Left border arcs) -->
             </div>
           </div>
 
@@ -74,7 +67,7 @@
           </button>
         </div>
         
-        <!-- Slide Dots Indicator -->
+        <!-- Slide Dots Indicator (4 Concepts) -->
         <div class="slide-dots" id="slide-dots">
           <span class="dot active" data-index="0"></span>
           <span class="dot" data-index="1"></span>
@@ -83,54 +76,40 @@
         </div>
       </section>
 
-      <!-- MID SECTION: PROMPT BANNER WITH AVATAR & CONCEPT SELECTOR -->
-      <section class="prompt-selection-section">
-        <div class="buddy-banner">
-          <div class="avatar-wrapper">
-            <img src="assets/avatar.jpg" alt="Minh An Avatar" class="buddy-avatar" id="buddy-avatar-img">
-            <span class="online-indicator"></span>
-          </div>
+      <!-- RIGHT COLUMN (1/4 Width): BUDDY PROMPT, QUESTION SELECTOR & ACTIVE CHAT -->
+      <section class="chat-col-right">
+        <div class="right-panel-card">
           
-          <div class="banner-text">
-            <h2 class="banner-title">
-              Kiểm tra bạn đã hiểu khái niệm chưa bằng cách giải thích lại cho <span class="highlight-buddy">"Minh An - Bạn học AI"</span>
-            </h2>
-            <p class="banner-subtext">
-              Hãy chọn khái niệm bên dưới để thử tự giải thích. Minh An sẽ đóng vai bạn học lắng nghe, hỏi lại 1 điểm chưa rõ và cùng đối chiếu nguồn!
-            </p>
-          </div>
-        </div>
-
-        <!-- Concept Selection Buttons -->
-        <div class="concept-buttons-grid" id="concept-buttons-container">
-          <!-- Rendered dynamically -->
-        </div>
-      </section>
-
-      <!-- CHAT SECTION: INTERACTIVE CONVERSATION -->
-      <section class="chat-section">
-        <div class="chat-card">
-          <div class="chat-header">
-            <div class="chat-topic-info">
-              <span class="topic-tag" id="chat-topic-tag">C01: People-First vs Tech-First</span>
-              <span class="turn-counter" id="chat-turn-counter">Lượt tương tác: <strong id="current-turn">0</strong>/2</span>
+          <!-- Buddy Avatar & Speech Text matching user screenshot -->
+          <div class="buddy-speech-header">
+            <div class="avatar-wrapper">
+              <img src="assets/avatar.jpg" alt="Minh An Avatar" class="buddy-avatar" id="buddy-avatar-img">
+              <span class="online-indicator"></span>
             </div>
-            
-            <div class="chat-status" id="chat-status-badge">
-              <span class="status-dot"></span> Sẵn sàng lắng nghe
+            <div class="speech-bubble-box">
+              <p class="speech-text" id="buddy-prompt-text">
+                Trong slide này có khái niệm: <strong id="slide-concepts-list">People-First vs Technology-First</strong>. Bạn có muốn thử trả lời thắc mắc của mình để hiểu hơn về khái niệm này ko (click chọn câu hỏi bạn muốn trả lời):
+              </p>
             </div>
           </div>
 
-          <!-- Chat Scrollable Messages Area -->
-          <div class="chat-messages" id="chat-messages">
-            <!-- Initial welcome message from Minh An -->
+          <!-- Grouped Debate Questions (A, B, C) matching screenshot -->
+          <div class="grouped-questions-container" id="grouped-questions-container">
+            <!-- Injected via JS -->
           </div>
 
-          <!-- Quick Suggestion / Source Comparison Bar (Shown when session ends) -->
+          <!-- Chat Messages Area -->
+          <div class="chat-messages-container">
+            <div class="chat-messages" id="chat-messages">
+              <!-- Messages -->
+            </div>
+          </div>
+
+          <!-- Source Comparison Bar (Shown when session ends) -->
           <div id="source-comparison-bar" class="source-bar hidden">
             <div class="source-bar-content">
-              <span>💡 Bạn đã giải thích hoàn thành lượt học! Hãy đối chiếu với tài liệu nguồn chuẩn.</span>
-              <button id="btn-view-source-modal" class="btn btn-sm btn-outline">📖 Xem đối chiếu nguồn</button>
+              <span>💡 Bạn đã hoàn thành lượt học!</span>
+              <button id="btn-view-source-modal" class="btn btn-sm btn-outline">📖 Đối chiếu nguồn</button>
             </div>
           </div>
 
@@ -140,13 +119,19 @@
               <textarea 
                 id="user-input" 
                 rows="2" 
-                placeholder="Nhập lời giải thích của bạn cho khái niệm đang chọn..."
+                placeholder="Nhập phản hồi hoặc câu trả lời của bạn..."
                 required
               ></textarea>
-              <button type="submit" id="btn-send" class="btn btn-primary btn-send">
-                <span>Gửi lời giải thích</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              </button>
+              <div class="chat-action-buttons">
+                <button type="button" id="btn-reset-session-chat" class="btn btn-secondary btn-sm" title="Reset phiên chat này">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                  <span>Reset</span>
+                </button>
+                <button type="submit" id="btn-send" class="btn btn-primary btn-send">
+                  <span>Gửi</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
             </form>
           </div>
         </div>
