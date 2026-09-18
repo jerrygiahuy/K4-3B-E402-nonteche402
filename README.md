@@ -4,14 +4,13 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** ____ · **Cụm:** ____ · **Track:** ____
+**Lớp:** 3B · **Phòng:** E402 · **Cụm:** ____ · **Track:** D — Học tập thích ứng & tương tác (đề D3)
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
-|  |  |  |  |
+| Trần Vũ Gia Huy | Chưa cung cấp | Nhóm trưởng · BA/PM | Evidence và khảo sát; xác định pain, phạm vi và yêu cầu; tổng hợp spec; tổ chức dùng thử; làm slide; theo dõi và nộp checkpoint |
+| Phùng Đình Triển | Chưa cung cấp | Developer | Xây UI và luồng phiên; tích hợp API và prompt; xử lý lỗi; hướng dẫn chạy; quay video demo |
+| Cao Đức Hiệp | Chưa cung cấp | Prompt và QA | Chọn nguồn kiến thức; viết prompt; xây kịch bản rủi ro và golden set; kiểm thử, chấm kết quả; bàn giao §5–§7 |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
 
