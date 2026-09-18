@@ -418,7 +418,7 @@ function extractUserContext(text) {
 async function callRealGeminiApi(userExplanation, slideIndex, currentTurn, questionObj, history) {
   if (!state.apiKey) return null;
   const slide = SLIDES_DATA[slideIndex];
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${state.apiKey}`;
+  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent";
 
   const historyText = history.map(m => `${m.role === 'user' ? 'Học viên' : 'Minh An'}: ${m.content}`).join('\n');
 
@@ -450,7 +450,8 @@ Lượt thảo luận hiện tại: ${currentTurn}/${MAX_TURNS}.`;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-goog-api-key': state.apiKey
       },
       body: JSON.stringify({
         system_instruction: {
