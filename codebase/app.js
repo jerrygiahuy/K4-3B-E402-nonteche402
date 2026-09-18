@@ -265,6 +265,7 @@ Yêu cầu học viên đưa ví dụ thực tế và phân tích đa khía cạ
       const text = data.candidates[0].content.parts[0].text.trim();
       return {
         feedback: `🤖 **[AI Thật - Gemini API]** ${text}`,
+        is_real_ai: true,
         is_complete: currentTurn >= MAX_TURNS
       };
     }
@@ -415,7 +416,7 @@ function setupEventListeners() {
       if (indicator) indicator.remove();
       
       const response = await generateAiPeerFeedback(text, currentIndex, currentTurn);
-      appendMessage('buddy', response.feedback);
+      appendMessage('buddy', response.is_real_ai ? response.feedback : `🧩 **[Phản hồi quy tắc — không phải AI thật]** ${response.feedback}`);
       
       if (response.is_complete || currentTurn >= MAX_TURNS) {
         sourceComparisonBar.classList.remove('hidden');

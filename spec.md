@@ -3,7 +3,7 @@
 Hướng: D — Học tập thích ứng & tương tác
 Đề: D3 — Học bằng cách dạy
 Loại: [ ] Tối ưu tính năng có sẵn  [x] Tính năng mới
-Trạng thái: Bản nháp chuẩn bị CP4 — các mục chưa kiểm chứng được ghi rõ bên dưới
+Trạng thái: CP4 — đã chốt bản demo chính và quality bar; các mục chưa kiểm chứng được ghi rõ bên dưới
 
 ## §1. User & Job
 
@@ -72,8 +72,9 @@ Các nhận định ở cột "điều học" và "điểm khác" là phân tíc
 
 ## §4. Thiết kế
 - Lát cắt một câu: Học viên vừa học một khái niệm nhập lời giải thích; AI đối chiếu nguồn để chọn một điểm thiếu hoặc mơ hồ và hỏi lại; học viên sửa lời giải thích trước khi xem tài liệu đối chiếu.
-- Non-goals: không luyện bằng giọng nói hoặc avatar; không nhiều nhân vật mô phỏng; không chấm điểm chính thức hoặc gửi VLearn; không đăng nhập hay tích hợp VLearn; không giảng lại toàn bài.
-- Mức prototype nhắm tới: Working cho một luồng văn bản với ít nhất một lời gọi AI thật; thẻ kiến thức và phần đối chiếu nguồn là nội dung biên soạn sẵn. Bản web `codebase/index.html` hiện có giao diện 4 khái niệm, 5 lượt và gọi Gemini khi nhập key; không có key hoặc gọi lỗi thì dùng phản hồi quy tắc. Bản Streamlit `codebase/app.py` giới hạn 2 lượt. Cần chốt một bản demo và một số lượt với Triển, Hiệp trước khi tuyên bố bản chạy khớp spec.
+- Non-goals: không luyện bằng giọng nói hoặc avatar tương tác; không nhiều nhân vật mô phỏng; không chấm điểm chính thức hoặc gửi VLearn; không đăng nhập hay tích hợp VLearn; không giảng lại toàn bài.
+- Bản demo chính đã chốt: web `codebase/index.html` với tối đa 5 lượt giải thích. Mức nhắm tới là Working, có ít nhất một lời gọi AI thật; thẻ kiến thức và phần đối chiếu nguồn là nội dung biên soạn sẵn. Khi nhập key, bản web thử gọi Gemini; không có key hoặc gọi lỗi thì dùng phản hồi quy tắc đã gắn nhãn riêng. Bản Streamlit `codebase/app.py` (2 lượt) không dùng để đo hoặc demo CP4. Bản web hiện đi theo chuỗi câu hỏi định sẵn và chưa chứng minh chọn đúng một điểm thiếu từ nguồn hoặc dừng sớm khi đã đủ ý; cần kiểm thử và chỉnh trước khi khẳng định đạt lát cắt mục tiêu.
+- Video tham chiếu: [luồng prototype CP2](https://drive.google.com/file/d/1I0A3aqYq2b-DOlYymKcN5ukSJNM7rZzV/view?usp=share_link) và [thao tác CP3](https://drive.google.com/file/d/1xoo4eIkc1Bh76xgtwR7V0_t-FGsvvhZZ/view?usp=sharing). Video CP3 cho thấy tương tác trên bản web nhưng phản hồi quan sát được giống nhánh quy tắc; chưa chứng minh lời gọi AI thật. Chưa kiểm tra quyền xem của người ngoài đối với hai link Drive.
 - Automation: [x] augment [ ] conditional [ ] automate. AI chỉ gợi một câu hỏi; học viên quyết định sửa lời giải thích và tự xem nguồn. Câu hỏi sai có thể khiến học viên ôn lệch, nên không tự chấm điểm hay xác nhận đã hiểu chỉ vì đủ số lượt.
 
 ### §4b. Nguyên tắc thiết kế HAX/PAIR
@@ -81,7 +82,7 @@ Các nhận định ở cột "điều học" và "điểm khác" là phân tíc
 | Nguyên tắc | Áp cụ thể vào prototype | Trạng thái kiểm tra |
 |---|---|---|
 | [HAX G1 — Nói rõ hệ thống làm gì](https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-what-the-system-can-do/) | Banner và lời chào trong `codebase/index.html`, `codebase/app.js` nêu việc giải thích khái niệm và hỏi lại. | Đã có trong mã; cần xem trên trình duyệt và thử với người dùng. |
-| [HAX G2 — Nói rõ giới hạn độ tin cậy](https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-how-well-the-system-can-do-what-it-can-do/) | Cần báo khi dùng phản hồi quy tắc hoặc khi chưa có nguồn đủ chắc; không gọi mọi phản hồi là AI thật. | Chưa đạt: fallback chưa được gắn nhãn rõ trong giao diện. |
+| [HAX G2 — Nói rõ giới hạn độ tin cậy](https://www.microsoft.com/en-us/haxtoolkit/guideline/make-clear-how-well-the-system-can-do-what-it-can-do/) | Phản hồi quy tắc được gắn nhãn riêng; phản hồi Gemini có nhãn AI thật. | Đã sửa trong `codebase/app.js`; cần kiểm tra lại trên trình duyệt. Chưa có cảnh báo khi nguồn không đủ chắc. |
 | [HAX G9 — Hỗ trợ sửa](https://www.microsoft.com/en-us/haxtoolkit/guideline/support-efficient-correction/) | Người học nhập tiếp lời giải thích và có nút reset phiên. | Đã có luồng nhập tiếp/reset; cần kiểm tra việc giữ nội dung khi API lỗi. |
 | [HAX G10 — Thu hẹp phạm vi khi không chắc](https://www.microsoft.com/en-us/haxtoolkit/guideline/scope-services-when-in-doubt/) | Nếu lời giải thích mơ hồ, hỏi làm rõ một điểm; nếu ngoài nguồn, báo giới hạn và mời quay lại khái niệm. | Prompt có yêu cầu; chưa có kết quả chạy thật chứng minh. |
 
@@ -103,6 +104,8 @@ Thiết kế thêm theo [PAIR Guidebook](https://pair.withgoogle.com/guidebook-v
 - **Failure / Không căn cứ / Out of scope (③):** Học viên đưa câu hỏi ngoài phạm vi (code, y tế, đòi chấm điểm) → Bạn học AI báo giới hạn vai trò bạn học và hướng người dùng quay lại nội dung khái niệm đang ôn.
 - **Correction / Misconception (user sửa - ④):** Học viên mắc lỗi ngụy biện hoặc giải thích thiếu ý → Bạn học AI đặt câu hỏi phản biện gợi mở → Học viên nhận ra và sửa lại câu trả lời đúng ý chính.
 
+Các đường đi trên là hành vi mục tiêu. Bản web 5 lượt hiện chưa có bằng chứng dừng sớm ở happy path, chọn đúng điểm thiếu theo nguồn hoặc xử lý đủ các nhánh lỗi; cần kiểm thử trên output thực tế trước khi đánh dấu đã đạt.
+
 ## §7. Kiểm thử
 
 - **Chiều chất lượng + định nghĩa kiểm chứng được:**
@@ -110,7 +113,7 @@ Thiết kế thêm theo [PAIR Guidebook](https://pair.withgoogle.com/guidebook-v
   2. *Không tiết lộ đáp án sớm:* Mỗi lượt chỉ hỏi 1 câu gợi mở, không viết nguyên đoạn định nghĩa thay người học.
   3. *An toàn ranh giới:* 100% case ngoài phạm vi được báo giới hạn vai trò bạn học.
 - **Golden set:** 22 case trong [`codebase/eval/test_cases.json`](codebase/eval/test_cases.json) (11 Lớp 1, 4 Lớp 2, 4 Lớp 3, 3 Lớp 4). Chưa có bằng chứng trong repo cho yêu cầu ≥10 case phát triển từ chatlog được cấp; cần Hiệp đối chiếu mã nguồn từng case.
-- **Quality bar đề xuất để chốt trước hạn CP4:** ≥85% trên toàn bộ case **và** 100% case Lớp 3 xử lý đúng giới hạn. Mỗi case cần lưu input, phản hồi thực tế của đúng bản demo/model, nguồn đối chiếu, người chấm và kết quả theo tiêu chí trên. Nhóm cần xác nhận ngưỡng trước 21:00 18/09/2026; sau khi chốt không đổi ngưỡng để làm đẹp kết quả.
+- **Quality bar CP4 đã chốt bởi nhóm trưởng lúc 18:53 ngày 18/09/2026:** ≥85% trên toàn bộ 22 case (**ít nhất 19/22**) **và** 100% case Lớp 3 (**4/4**) xử lý đúng giới hạn. Đo trên phản hồi thực tế của bản web 5 lượt với cấu hình/model ghi rõ; mỗi case lưu input, output, nguồn đối chiếu, người chấm và pass/fail theo tiêu chí của case. Hai điều kiện phải cùng đạt. Giữ nguyên ngưỡng này trong các lượt chạy sau.
 - **Trạng thái kiểm thử:** Chưa có tỷ lệ pass/fail của đầu ra AI hoặc prototype được xác minh. `codebase/eval/eval_results.json` và `eval_report.md` ghi 22/22, nhưng `run_eval.py` và `run_eval.js` chỉ đọc trường `expected_behavior` của test case, không gọi AI/prototype và không chấm phản hồi thực tế. Vì vậy 22/22 chỉ phản ánh kiểm tra dữ liệu kỳ vọng trong script, không chứng minh đạt quality bar. Bài kiểm tra nhanh `codebase/agent.py` với hai lời giải thích C01 khác nhau cho cùng một câu hỏi về ví dụ; cần Hiệp chạy lại bộ test trên đầu ra thực tế và bàn giao trace trước CP4.
 
 
@@ -124,3 +127,4 @@ Thiết kế thêm theo [PAIR Guidebook](https://pair.withgoogle.com/guidebook-v
 ## §9. Changelog
 | Thời điểm | Đổi gì | Vì sao (trỏ về feedback/case nào) |
 | 18/09/2026, chuẩn bị CP4 | Bổ sung nghiên cứu công khai §3, thiết kế §4 và kiểm toán trạng thái eval §7 | Đối chiếu repo với phân công và phát hiện báo cáo 22/22 chưa chấm phản hồi thực tế. |
+| 18/09/2026, 18:53 | Nhóm trưởng chốt bản web 5 lượt và quality bar ≥85% toàn bộ, 100% Lớp 3 | Quyết định CP4; ngưỡng được khóa trước khi có kết quả eval thực tế được xác minh. |
