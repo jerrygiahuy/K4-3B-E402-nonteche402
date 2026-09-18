@@ -123,7 +123,7 @@ Các đường đi trên là hành vi mục tiêu. Bản web 5 lượt hiện ch
 - Trần Vũ Gia Huy (BA/PM): thu thập và đối chiếu evidence, xác định pain và phạm vi, tổng hợp spec, tổ chức dùng thử, làm slide và nộp checkpoint.
 - Phùng Đình Triển (Developer): xây UI và luồng phiên, tích hợp API/prompt, xử lý lỗi, hướng dẫn chạy và quay video demo.
 - Cao Đức Hiệp (Prompt và QA): chọn nguồn kiến thức, viết prompt, lập kịch bản rủi ro và golden set, kiểm thử và bàn giao nội dung §5–§7.
-- Willing users: chưa có tên/mã hoặc xác nhận trong repo. Kế hoạch: mời tối thiểu 2 người đã khai ở CP1 nếu có, giao cùng một việc giải thích khái niệm, quan sát tự thao tác, lưu câu nói nguyên văn và quyết định sửa/giữ; mục tiêu 5 người ngoài nhóm theo README. Không ghi là đã dùng thử khi chưa có log.
+- Người dùng thử: nhóm trưởng xác nhận Nguyễn Quang Đạo (U01) và Ngô Thế Việt (U02) đã trực tiếp thử prototype và đồng ý công khai tên. Ghi chép thao tác và câu trả lời chưa được bàn giao nên chưa có kết quả validation trong repo; chưa xác nhận hai người này có thuộc danh sách willing users đã khai ở CP1 hay không. Mục tiêu theo README là 5 người ngoài nhóm. Khi nhận log, bổ sung task, quan sát, quote nguyên văn và quyết định sửa/giữ; chưa kết luận hiệu quả từ việc đã thử đơn thuần.
 - Multi-prototype (nếu làm): trục khác biệt của ≥2 phương án + lý do chọn:
 
 ## §9. Changelog
