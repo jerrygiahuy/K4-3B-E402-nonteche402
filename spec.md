@@ -123,7 +123,7 @@ Các đường đi trên là hành vi mục tiêu. Bản web 5 lượt hiện ch
 - Trần Vũ Gia Huy (BA/PM): thu thập và đối chiếu evidence, xác định pain và phạm vi, tổng hợp spec, tổ chức dùng thử, làm slide và nộp checkpoint.
 - Phùng Đình Triển (Developer): xây UI và luồng phiên, tích hợp API/prompt, xử lý lỗi, hướng dẫn chạy và quay video demo.
 - Cao Đức Hiệp (Prompt và QA): chọn nguồn kiến thức, viết prompt, lập kịch bản rủi ro và golden set, kiểm thử và bàn giao nội dung §5–§7.
-- Người dùng thử: nhóm trưởng xác nhận Nguyễn Quang Đạo (U01) và Ngô Thế Việt (U02) đã trực tiếp thử prototype và đồng ý công khai tên. Ghi chép thao tác và câu trả lời chưa được bàn giao nên chưa có kết quả validation trong repo; chưa xác nhận hai người này có thuộc danh sách willing users đã khai ở CP1 hay không. Mục tiêu theo README là 5 người ngoài nhóm. Khi nhận log, bổ sung task, quan sát, quote nguyên văn và quyết định sửa/giữ; chưa kết luận hiệu quả từ việc đã thử đơn thuần.
+- Người dùng thử: Nguyễn Quang Đạo (U01) và Ngô Thế Việt (U02) đã trực tiếp thử prototype, đồng ý công khai tên và có log tại [`validation/`](validation/session-log.md). Cả hai cho biết các câu hỏi có thể bám ví dụ họ nêu và làm họ bổ sung lời giải thích; đây là phản hồi từ 2 phiên, không phải thước đo hiệu quả học tập. Điểm lặp lại là cần làm rõ tiến trình/kết thúc phiên và phần Đối chiếu nguồn. Chưa xác nhận hai người có thuộc danh sách willing users đã khai ở CP1 hay không; mục tiêu theo README là 5 người ngoài nhóm.
 - Multi-prototype (nếu làm): trục khác biệt của ≥2 phương án + lý do chọn:
 
 ## §9. Changelog
@@ -132,3 +132,4 @@ Các đường đi trên là hành vi mục tiêu. Bản web 5 lượt hiện ch
 | 18/09/2026, 18:53 | Nhóm trưởng chốt bản web 5 lượt và quality bar ≥85% toàn bộ, 100% Lớp 3 | Quyết định CP4; ngưỡng được khóa trước khi có kết quả eval thực tế được xác minh. |
 | 18/09/2026, cập nhật khảo sát | Cập nhật số liệu 20 người do nhóm trưởng đối chiếu với phản hồi gốc | Ghi rõ nguồn số liệu và giới hạn suy luận về hiệu quả giải pháp. |
 | 19/09/2026, kiểm tra API | Bổ sung bằng chứng một request Gemini trả HTTP 200 và phản hồi có nhãn AI thật | Video do nhóm trưởng cung cấp; chưa thay cho kết quả eval 22 case. |
+| 19/09/2026, validation U01–U02 | Ưu tiên làm rõ tiến trình, thời điểm Đối chiếu nguồn và hints theo ngữ cảnh; giữ phiên độc lập và thẻ Ý chính cốt lõi | Việt khựng ở đầu luồng và cần gợi ý khi bí ý; Đạo nhầm phiên chat ban đầu nhưng đánh giá phiên độc lập giúp không lẫn chủ đề. Diff/Coverage View để backlog vì chưa có cách đối chiếu nguồn đủ tin cậy. |

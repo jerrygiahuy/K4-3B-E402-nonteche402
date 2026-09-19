@@ -1,6 +1,6 @@
 # Validation — người ngoài nhóm dùng thử
 
-**Trạng thái:** nhóm trưởng xác nhận Nguyễn Quang Đạo và Ngô Thế Việt đã trực tiếp dùng thử và đồng ý công khai tên. Ghi chép từng phiên chưa được bàn giao, nên hiện có 0 phiên có log trong repo; chưa đủ bằng chứng để đánh dấu hoàn thành R6.
+**Trạng thái:** Nguyễn Quang Đạo và Ngô Thế Việt đã trực tiếp dùng thử, đồng ý công khai tên và có ghi chép từng phiên trong thư mục này. Đây là 2 phiên validation; README đặt mục tiêu 5 người, gồm 2 willing users đã khai từ CP1 nếu có.
 
 ## Người tham gia và nhiệm vụ
 
